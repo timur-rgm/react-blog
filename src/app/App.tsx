@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { MainLayout } from "./layouts/MainLayout";
-import { MainPageLazy } from "./routes/MainPage/MainPage.lazy";
-import { AboutPageLazy } from "./routes/AboutPage/AboutPage.lazy";
-import { ThemeProvider } from "./theme/ThemeProvider";
+import { MainLayout } from "shared/ui/MainLayout/MainLayout";
+import { MainPage } from "pages/MainPage";
+import { AboutPage } from "pages/AboutPage";
+import { ThemeProvider } from "app/providers/ThemeProvider";
 
 import "./styles/index.scss"
 
@@ -14,11 +14,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <MainPageLazy />,
+                element: <MainPage />,
             },
             {
                 path: "/about",
-                element: <AboutPageLazy />,
+                element: <AboutPage />,
             },
         ]
     },

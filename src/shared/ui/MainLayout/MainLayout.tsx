@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom";
 import cn from 'classnames'
 
-import { useTheme } from "../theme/useTheme";
+import { useTheme } from "app/providers/ThemeProvider";
 
 export const MainLayout = () => {
     const { theme, onThemeToggle } = useTheme()
