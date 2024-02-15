@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import cn from "classnames";
 
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import styles from "./Navbar.module.scss";
 
@@ -15,8 +15,8 @@ export const Navbar = ({ classes }: Props) => {
   return (
     <nav className={cn(styles.root, classes?.root)}>
       <ul className={styles.list}>
-        <Link to={RoutePath.main}>Главная</Link>
-        <Link to={RoutePath.about}>Контакты</Link>
+        <AppLink to={RoutePath.main}>Главная</AppLink>
+        <AppLink to={RoutePath.about}>Контакты</AppLink>
       </ul>
     </nav>
   );
