@@ -1,14 +1,17 @@
 .root {
-  width: 100%;
-  padding: 0 20px;
-  height: var(--navbar-height);
-  background-color: var(--bg-color-inverted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    height: var(--navbar-height);
+    background-color: var(--bg-color-inverted);
 }
 
 .list {
-  display: flex;
-  height: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  column-gap: 20px;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 20px;
 }
