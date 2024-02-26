@@ -2,6 +2,7 @@ import { useState } from 'react'
 import cn from 'classnames'
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher'
 import styles from './Sidebar.module.scss'
 
 interface Props {
@@ -22,6 +23,9 @@ export const Sidebar = ({ className }: Props) => {
             <ul className={styles.switchers}>
                 <li>
                     <ThemeSwitcher />
+                </li>
+                <li>
+                    <LanguageSwitcher />
                 </li>
             </ul>
         </aside>
