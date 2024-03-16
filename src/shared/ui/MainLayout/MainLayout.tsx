@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
+import { PageLoader } from 'widgets/PageLoader'
 
 import styles from './MainLayout.module.scss'
 
@@ -21,7 +22,7 @@ export const MainLayout = () => {
                 <Sidebar />
 
                 <div className={styles.content}>
-                    <Suspense fallback={<p>Loading...</p>}>
+                    <Suspense fallback={<PageLoader />}>
                         <Outlet />
                     </Suspense>
                 </div>
