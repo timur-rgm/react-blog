@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 import cn from 'classnames'
 
+import { ErrorBoundary } from 'app/providers/ErrorBoundary'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
@@ -22,9 +23,11 @@ export const MainLayout = () => {
                 <Sidebar />
 
                 <div className={styles.content}>
-                    <Suspense fallback={<PageLoader />}>
-                        <Outlet />
-                    </Suspense>
+                    <ErrorBoundary>
+                        <Suspense fallback={<PageLoader />}>
+                            <Outlet />
+                        </Suspense>
+                    </ErrorBoundary>
                 </div>
             </main>
         </div>
