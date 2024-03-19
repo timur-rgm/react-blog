@@ -18,12 +18,31 @@ const config: Config = {
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
-    moduleDirectories: ['node_modules'],
-    moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
-    modulePaths: ['<rootDir>src'],
-    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-    rootDir: '../../'
+    coveragePathIgnorePatterns: [
+        '\\\\node_modules\\\\',
+    ],
+    moduleFileExtensions: [
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node',
+    ],
+    moduleDirectories: [
+        'node_modules'
+    ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    testMatch: [
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

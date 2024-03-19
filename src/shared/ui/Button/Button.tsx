@@ -12,7 +12,6 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ children, className,  variant, ...otherProps }: Props) => {
     return (
-        // eslint-disable-next-line react/button-has-type
         <button className={cn(styles.root, styles[variant], className)} {...otherProps}>
             {children}
         </button>
