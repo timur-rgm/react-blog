@@ -17,8 +17,8 @@ export const Sidebar = ({ className }: Props) => {
     }
 
     return (
-        <aside className={cn(styles.root, className, { [styles.open]: isOpen })}>
-            <button onClick={handleToggle} type="button">toggle</button>
+        <aside className={cn(styles.root, className, { [styles.open]: isOpen })} data-testid="sidebar">
+            <button data-testid="sidebar-button" onClick={handleToggle} type="button">toggle</button>
 
             <ul className={styles.switchers}>
                 <li>
