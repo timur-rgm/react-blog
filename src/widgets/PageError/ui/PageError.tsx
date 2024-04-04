@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import styles from './PageError.module.scss'
 
-interface Props {}
-
-export const PageError = ({}: Props) => {
+export const PageError = () => {
     const { t } = useTranslation()
 
     const handleReload = () => {

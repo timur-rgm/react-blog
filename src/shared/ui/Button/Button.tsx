@@ -2,7 +2,7 @@ import { ReactNode, ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 
-type Variant = 'default' | 'clear'
+type Variant = 'default' | 'clear' | 'outline'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

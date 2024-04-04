@@ -19,7 +19,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
     },
     plugins: ['@typescript-eslint', 'react', 'react-hooks', 'i18next'],
     rules: {
