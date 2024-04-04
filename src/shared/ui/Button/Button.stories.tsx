@@ -4,7 +4,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider'
 
 const meta: Meta<typeof Button> = {
-    component: Button
+    component: Button,
+    title: 'shared/Button'
 }
 
 export default meta
@@ -15,7 +16,7 @@ export const Default: Story = {
     args: {
         children: 'Text',
         variant: 'default'
-    },
+    }
 }
 
 export const Clear: Story = {
@@ -37,7 +38,5 @@ export const OutlineDark: Story = {
         children: 'Text',
         variant: 'outline'
     },
-    decorators: [
-        (Story) => ThemeDecorator(Theme.DARK, Story)
-    ]
+    decorators: [(Story) => ThemeDecorator(Theme.DARK, Story)]
 }

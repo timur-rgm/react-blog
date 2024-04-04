@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import { PageError } from './PageError'
+import MainPage from './MainPage'
 
-const meta: Meta<typeof PageError> = {
-    component: PageError,
-    title: 'widgets/PageError'
+const meta: Meta<typeof MainPage> = {
+    component: MainPage,
+    title: 'pages/MainPage'
 }
 
 export default meta
 
-type Story = StoryObj<typeof PageError>
+type Story = StoryObj<typeof MainPage>
 
 export const Light: Story = {
     args: {}

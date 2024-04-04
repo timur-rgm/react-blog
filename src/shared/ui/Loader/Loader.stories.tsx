@@ -5,6 +5,7 @@ import { Loader } from './Loader'
 
 const meta: Meta<typeof Loader> = {
     component: Loader,
+    title: 'shared/Loader'
 }
 
 export default meta

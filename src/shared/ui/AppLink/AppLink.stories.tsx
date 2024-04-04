@@ -5,6 +5,7 @@ import { AppLink, AppLinkTheme } from './AppLink'
 
 const meta: Meta<typeof AppLink> = {
     component: AppLink,
+    title: 'shared/AppLink',
     args: {
         children: 'Text',
         to: '/'

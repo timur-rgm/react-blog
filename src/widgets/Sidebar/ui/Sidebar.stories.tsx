@@ -4,7 +4,8 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { Sidebar } from './Sidebar'
 
 const meta: Meta<typeof Sidebar> = {
-    component: Sidebar
+    component: Sidebar,
+    title: 'widgets/Sidebar'
 }
 
 export default meta
