@@ -11,9 +11,9 @@ jobs:
             matrix:
                 node-version: [18.x]
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v2
             - name: Staring Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
             - name: install modules
@@ -24,15 +24,6 @@ jobs:
               run: npm run lint:ts
             - name: unit testing
               run: npm run test:unit
-            - name: Setup Chrome
-              run: |
-                  sudo apt-get update
-                  sudo apt-get install -y libappindicator1 fonts-liberation
-                  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-                  sudo dpkg -i google-chrome*.deb
-                  sudo apt-get install -f
-              env:
-                  CHROME_BIN: /usr/bin/google-chrome
             - name: build storybook
               run: npm run storybook:build
             - name: screenshot testing
