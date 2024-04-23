@@ -97,8 +97,10 @@
         }
     },
     "loki": {
+        "looks-same": {
+            "ignoreCaret": true
+        },
         "configurations": {
-            "diffingEngine": "looks-same",
             "chrome.laptop": {
                 "target": "chrome.app",
                 "width": 1366,
