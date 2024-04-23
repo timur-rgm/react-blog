@@ -28,3 +28,12 @@ jobs:
               run: npm run storybook:build
             - name: screenshot testing
               run: npm run test:ui:ci
+            - name: Setup Chrome
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y libappindicator1 fonts-liberation
+                  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+                  sudo dpkg -i google-chrome*.deb
+                  sudo apt-get install -f
+              env:
+                  CHROME_BIN: /usr/bin/google-chrome
