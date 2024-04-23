@@ -24,10 +24,6 @@ jobs:
               run: npm run lint:ts
             - name: unit testing
               run: npm run test:unit
-            - name: build storybook
-              run: npm run storybook:build
-            - name: screenshot testing
-              run: npm run test:ui:ci
             - name: Setup Chrome
               run: |
                   sudo apt-get update
@@ -37,3 +33,7 @@ jobs:
                   sudo apt-get install -f
               env:
                   CHROME_BIN: /usr/bin/google-chrome
+            - name: build storybook
+              run: npm run storybook:build
+            - name: screenshot testing
+              run: npm run test:ui:ci
