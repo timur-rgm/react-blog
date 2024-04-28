@@ -12,6 +12,6 @@ describe('Sidebar', () => {
         renderWithTranslation(<Sidebar />)
         const toggleButton = screen.getByTestId('sidebar-button')
         fireEvent.click(toggleButton)
-        expect(screen.getByTestId('sidebar')).toHaveClass('open')
+        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed')
     })
 })
