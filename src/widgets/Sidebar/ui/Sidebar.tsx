@@ -26,7 +26,7 @@ export const Sidebar = ({ className }: Props) => {
                 onClick={handleToggle}
                 size="small"
                 type="button"
-                variant="backgroundInverted"
+                variant="background-inverted"
             >
                 {isOpen ? '>' : '<'}
             </Button>
