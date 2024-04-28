@@ -5,8 +5,12 @@
     background-color: var(--bg-color-inverted);
     transition: width 0.2s;
 
-    &.open {
+    &.collapsed {
         width: var(--sidebar-width-close);
+
+        & .switchers {
+            flex-direction: column;
+        }
     }
 }
 

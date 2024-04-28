@@ -12,14 +12,14 @@ interface Props {
 }
 
 export const Sidebar = ({ className }: Props) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isCollapsed, setIsCollapsed] = useState(false)
 
     const handleToggle = () => {
-        setIsOpen((prev) => !prev)
+        setIsCollapsed((prev) => !prev)
     }
 
     return (
-        <aside className={cn(styles.root, className, { [styles.open]: isOpen })} data-testid="sidebar">
+        <aside className={cn(styles.root, className, { [styles.collapsed]: isCollapsed })} data-testid="sidebar">
             <Button
                 className={styles.openButton}
                 data-testid="sidebar-button"
@@ -28,7 +28,7 @@ export const Sidebar = ({ className }: Props) => {
                 type="button"
                 variant="background-inverted"
             >
-                {isOpen ? '>' : '<'}
+                {isCollapsed ? '>' : '<'}
             </Button>
 
             <ul className={styles.switchers}>
@@ -36,7 +36,7 @@ export const Sidebar = ({ className }: Props) => {
                     <ThemeSwitcher />
                 </li>
                 <li>
-                    <LanguageSwitcher />
+                    <LanguageSwitcher isShort={isCollapsed} />
                 </li>
             </ul>
         </aside>

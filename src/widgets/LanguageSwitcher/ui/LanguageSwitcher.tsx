@@ -6,9 +6,10 @@ import styles from './LanguageSwitcher.module.scss'
 
 interface Props {
     className?: string
+    isShort?: boolean
 }
 
-export const LanguageSwitcher = ({ className }: Props) => {
+export const LanguageSwitcher = ({ className, isShort }: Props) => {
     const { t, i18n } = useTranslation()
 
     const handleSwitch = () => {
@@ -17,7 +18,7 @@ export const LanguageSwitcher = ({ className }: Props) => {
 
     return (
         <Button className={cn(styles.root, className)} onClick={handleSwitch} variant="clear">
-            {t('Язык')}
+            {t(isShort ? 'Язык сокр.' : 'Язык')}
         </Button>
     )
 }
