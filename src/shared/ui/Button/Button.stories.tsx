@@ -51,7 +51,7 @@ export const VariantBackground: Story = {
 export const VariantBackgroundInverted: Story = {
     args: {
         children: 'Text',
-        variant: 'backgroundInverted'
+        variant: 'background-inverted'
     }
 }
 
