@@ -8,6 +8,18 @@
     &.collapsed {
         width: var(--sidebar-width-close);
 
+        & .menuLink {
+            justify-content: center;
+            column-gap: 0;
+            padding: 0;
+
+            & span {
+                width: 0;
+                opacity: 0;
+                transition: opacity 200ms;
+            }
+        }
+
         & .switchers {
             flex-direction: column;
         }
@@ -28,4 +40,25 @@
     align-items: center;
     column-gap: 10px;
     width: 100%;
+}
+
+.navContainer {
+    margin-top: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.menuLink {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding-left: 20px;
+
+    & svg {
+        fill: var(--primary-color);
+    }
 }
