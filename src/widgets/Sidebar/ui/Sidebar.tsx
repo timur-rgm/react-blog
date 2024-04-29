@@ -1,9 +1,15 @@
 import { useState } from 'react'
+
+import { useTranslation } from 'react-i18next'
 import cn from 'classnames'
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher'
 import { Button } from 'shared/ui/Button/Button'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import MainIcon from 'shared/assets/icons/main-20-20.svg'
+import AboutIcon from 'shared/assets/icons/about-20-20.svg'
 
 import styles from './Sidebar.module.scss'
 
@@ -13,6 +19,8 @@ interface Props {
 
 export const Sidebar = ({ className }: Props) => {
     const [isCollapsed, setIsCollapsed] = useState(false)
+
+    const { t } = useTranslation()
 
     const handleToggle = () => {
         setIsCollapsed((prev) => !prev)
@@ -30,6 +38,23 @@ export const Sidebar = ({ className }: Props) => {
             >
                 {isCollapsed ? '>' : '<'}
             </Button>
+
+            <nav className={styles.navContainer}>
+                <ul className={styles.menu}>
+                    <li>
+                        <AppLink className={styles.menuLink} to={RoutePath.main}>
+                            <MainIcon />
+                            <span>{t('Главная')}</span>
+                        </AppLink>
+                    </li>
+                    <li>
+                        <AppLink className={styles.menuLink} to={RoutePath.about}>
+                            <AboutIcon />
+                            <span>{t('Контакты')}</span>
+                        </AppLink>
+                    </li>
+                </ul>
+            </nav>
 
             <ul className={styles.switchers}>
                 <li>

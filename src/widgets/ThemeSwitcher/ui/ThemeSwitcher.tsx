@@ -5,6 +5,7 @@ import { Button } from 'shared/ui/Button/Button'
 
 import LightIcon from 'shared/assets/icons/theme-light.svg'
 import DarkIcon from 'shared/assets/icons/theme-dark.svg'
+
 import styles from './ThemeSwitcher.module.scss'
 
 interface Props {
