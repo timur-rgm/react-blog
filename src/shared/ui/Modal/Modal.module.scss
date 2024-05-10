@@ -1,0 +1,36 @@
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: var(--z-index-modal);
+    transition: 0.2s opacity ease-in-out;
+
+    &.opened {
+        pointer-events: auto;
+        opacity: 1;
+
+        & .content {
+            transform: scale(1);
+        }
+    }
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color-overlay);
+}
+
+.content {
+    max-width: 60%;
+    padding: 20px;
+    border-radius: var(--border-radius-modal);
+    background-color: var(--bg-color);
+    transform: scale(0.5);
+    transition: 0.2s transform ease-in-out;
+}
