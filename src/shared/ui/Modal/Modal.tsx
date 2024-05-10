@@ -1,5 +1,6 @@
 import { ReactNode, MouseEvent, useEffect, useCallback } from 'react'
 import cn from 'classnames'
+import { Portal } from 'shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
 
 interface Props {
@@ -40,12 +41,14 @@ export const Modal = ({ children, className, isOpen, onClose }: Props) => {
     }, [isOpen, handleEscKey])
 
     return (
-        <div className={cn(styles.root, className, { [styles.opened]: isOpen })}>
-            <div className={styles.overlay} onClick={handleClose}>
-                <div className={styles.content} onClick={handleContentClick}>
-                    {children}
+        <Portal>
+            <div className={cn(styles.root, className, { [styles.opened]: isOpen })}>
+                <div className={styles.overlay} onClick={handleClose}>
+                    <div className={styles.content} onClick={handleContentClick}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
