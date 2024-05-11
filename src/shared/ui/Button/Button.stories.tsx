@@ -26,6 +26,13 @@ export const VariantClear: Story = {
     }
 }
 
+export const VariantClearInverted: Story = {
+    args: {
+        children: 'Text',
+        variant: 'clear-inverted'
+    }
+}
+
 export const VariantOutline: Story = {
     args: {
         children: 'Text',
