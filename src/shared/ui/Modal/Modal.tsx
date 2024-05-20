@@ -1,6 +1,8 @@
 import { ReactNode, MouseEvent, useEffect, useCallback } from 'react'
 import cn from 'classnames'
+
 import { Portal } from 'shared/ui/Portal/Portal'
+
 import styles from './Modal.module.scss'
 
 interface Props {

@@ -39,7 +39,7 @@ export const Sidebar = ({ className }: Props) => {
                 {isCollapsed ? '>' : '<'}
             </Button>
 
-            <nav className={styles.navContainer}>
+            <nav className={styles.navConainer}>
                 <ul className={styles.menu}>
                     <li>
                         <AppLink className={styles.menuLink} to={RoutePath.main}>

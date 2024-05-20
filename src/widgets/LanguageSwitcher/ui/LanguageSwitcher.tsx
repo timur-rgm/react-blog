@@ -17,7 +17,7 @@ export const LanguageSwitcher = ({ className, isShort }: Props) => {
     }
 
     return (
-        <Button className={cn(styles.root, className)} onClick={handleSwitch} variant="clear">
+        <Button className={cn(styles.root, className)} onClick={handleSwitch} variant="clear-inverted">
             {t(isShort ? 'Язык сокр.' : 'Язык')}
         </Button>
     )
