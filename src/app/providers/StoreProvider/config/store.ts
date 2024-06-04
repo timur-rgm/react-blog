@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import counterSlice from 'entities/Counter/model/slice/counterSlice'
+import { counterSlice } from 'entities/Counter'
+import { userSlice } from 'entities/User'
 
 const rootReducer = combineReducers({
-    counter: counterSlice
+    counter: counterSlice,
+    user: userSlice,
 })
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
