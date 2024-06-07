@@ -1,4 +1,4 @@
-import { ReactNode, MouseEvent, useEffect, useCallback } from 'react'
+import { ReactNode, MouseEvent, useEffect, useCallback, useState } from 'react'
 import cn from 'classnames'
 
 import { Portal } from 'shared/ui/Portal/Portal'
@@ -10,9 +10,18 @@ interface Props {
     className?: string
     isOpen: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
-export const Modal = ({ children, className, isOpen, onClose }: Props) => {
+export const Modal = ({ children, className, isOpen, onClose, lazy }: Props) => {
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
+
     const handleClose = useCallback(() => {
         if (onClose) {
             onClose()
@@ -41,6 +50,10 @@ export const Modal = ({ children, className, isOpen, onClose }: Props) => {
             removeEventListener('keydown', handleEscKey)
         }
     }, [isOpen, handleEscKey])
+
+    if (lazy && !isMounted) {
+        return null
+    }
 
     return (
         <Portal>

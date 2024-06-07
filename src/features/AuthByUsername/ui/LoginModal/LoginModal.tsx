@@ -9,7 +9,7 @@ interface Props {
 
 export const LoginModal = ({ isOpen, onClose }: Props) => {
     return (
-        <Modal className={styles.root} isOpen={isOpen} onClose={onClose}>
+        <Modal className={styles.root} isOpen={isOpen} lazy onClose={onClose}>
             <LoginForm />
         </Modal>
     )

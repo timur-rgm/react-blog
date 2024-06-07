@@ -8,5 +8,7 @@
     "isShort": "isShort",
     "Главная": "Main",
     "Контакты": "Contact",
-    "Войти": "Sign in"
+    "Войти": "Sign in",
+    "Имя пользователя": "Username",
+    "Пароль": "Password"
 }
