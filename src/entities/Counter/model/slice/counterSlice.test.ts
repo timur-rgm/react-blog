@@ -1,4 +1,4 @@
-import counterReducer, { increment, decrement } from './counterSlice'
+import { counterReducer, increment, decrement } from './counterSlice'
 import type { CounterState } from '../types/counterState'
 
 describe('CounterSlice', () => {

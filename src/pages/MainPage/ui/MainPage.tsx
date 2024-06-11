@@ -7,7 +7,7 @@ const MainPage = () => {
     return (
         <>
             <h1>{t('Главная страница')}</h1>
-            <Counter />
+            {/*<Counter />*/}
         </>
     )
 }

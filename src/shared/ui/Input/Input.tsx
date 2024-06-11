@@ -27,8 +27,6 @@ export const Input = memo(function Input(props: Props) {
         }
     }, [autoFocus])
 
-    console.log('render')
-
     return (
         <div className={styles.container}>
             {placeholder && <p className={styles.placeholder}>{placeholder}</p>}

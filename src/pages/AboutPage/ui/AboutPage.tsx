@@ -7,7 +7,7 @@ const AboutPage = () => {
     return (
         <>
             <h1>{t('О нас')}</h1>
-            <Counter />
+            {/*<Counter />*/}
         </>
     )
 }
