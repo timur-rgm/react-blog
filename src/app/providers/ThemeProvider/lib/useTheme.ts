@@ -9,15 +9,19 @@ interface Return {
 export const useTheme = (): Return => {
     const { theme, setTheme } = useContext(ThemeContext)
 
+    const bodyElement = document.querySelector('#body')
+
     useEffect(() => {
-        document.querySelector('#body').className = theme
+        if (bodyElement) {
+            bodyElement.className = theme
+        }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleToggle = () => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
         setTheme!(newTheme)
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
-        document.querySelector('#body').className = newTheme
+        bodyElement.className = newTheme
     }
 
     return {
