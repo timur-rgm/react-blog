@@ -1,4 +1,4 @@
-import { useEffect, Suspense,  } from 'react'
+import { useEffect, Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { useAppDispatch } from 'app/providers/StoreProvider'

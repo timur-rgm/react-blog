@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-import i18n from 'shared/config/i18n/i18n'
-
 import { loginByUsername } from '../services/loginByUsername/loginByUsername'
 import type { LoginState } from '../types/loginState'
 
@@ -41,7 +39,7 @@ export const loginSlice = createSlice({
             })
             .addCase(loginByUsername.rejected, (state) => {
                 state.isLoading = false
-                state.error = `${i18n.t('Неверные логин или пароль')}`
+                state.error = 'Error'
             })
     }
 })

@@ -40,7 +40,7 @@ export const LoginForm = () => {
     return (
         <form className={styles.root}>
             <Text align="center" element="h2">{t('Форма авторизации')}</Text>
-            {error && <Text element="h3" variant="error">{error}</Text>}
+            {error && <Text element="h3" variant="error">{t('Неверные логин или пароль')}</Text>}
 
             <Input autoFocus onChange={handleUsernameChange} placeholder={t('Имя пользователя')} value={username} />
             <Input onChange={handlePasswordChange} placeholder={t('Пароль')} value={password} />
