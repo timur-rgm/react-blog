@@ -1,7 +1,7 @@
 import type { RootState } from 'app/providers/StoreProvider'
 import { selectValue } from './selectValue'
 
-describe('selectValue()', () => {
+describe('selectLoginState()', () => {
     test('should return counter value', () => {
         const state: Pick<RootState, 'counter'> = {
             counter: { value: 5 }

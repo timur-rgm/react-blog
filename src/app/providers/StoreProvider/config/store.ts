@@ -1,10 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+
+import { loginReducer } from 'features/AuthByUsername'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 
 const rootReducer = combineReducers({
     counter: counterReducer,
     user: userReducer,
+    login: loginReducer,
 })
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {

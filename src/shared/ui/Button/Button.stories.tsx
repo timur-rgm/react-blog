@@ -89,3 +89,10 @@ export const SizeMedium: Story = {
         size: 'medium'
     }
 }
+
+export const Disabled: Story = {
+    args: {
+        children: 'Text',
+        disabled: true
+    }
+}

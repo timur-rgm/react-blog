@@ -9,6 +9,9 @@
     "Главная": "Main",
     "Контакты": "Contact",
     "Войти": "Sign in",
+    "Выйти": "Log out",
     "Имя пользователя": "Username",
-    "Пароль": "Password"
+    "Пароль": "Password",
+    "Форма авторизации": "Authorization form",
+    "Неверные логин или пароль": "Incorrect login or password"
 }

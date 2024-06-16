@@ -5,6 +5,11 @@
     width: max-content;
     color: var(--primary-color);
     cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
 
 .variant-clear,
