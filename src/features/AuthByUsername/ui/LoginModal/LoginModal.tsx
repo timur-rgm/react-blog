@@ -1,5 +1,9 @@
+import { Suspense } from 'react'
+
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { Loader } from 'shared/ui/Loader/Loader'
+
+import { LoginFormLazy } from '../LoginForm/LoginForm.lazy'
 import styles from './LoginModal.module.scss'
 
 interface Props {
@@ -10,7 +14,9 @@ interface Props {
 export const LoginModal = ({ isOpen, onClose }: Props) => {
     return (
         <Modal className={styles.root} isOpen={isOpen} lazy onClose={onClose}>
-            <LoginForm />
+            <Suspense fallback={<Loader/>}>
+                <LoginFormLazy />
+            </Suspense>
         </Modal>
     )
 }

@@ -13,7 +13,7 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 
 import styles from './LoginForm.module.scss'
 
-export const LoginForm = () => {
+const LoginForm = () => {
     const { t } = useTranslation()
 
     const { username, password, isLoading, error } = useAppSelector(selectLoginState)
@@ -51,3 +51,5 @@ export const LoginForm = () => {
         </form>
     )
 }
+
+export default LoginForm
