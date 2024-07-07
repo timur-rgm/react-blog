@@ -1,23 +1,44 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 
 import { loginReducer } from 'features/AuthByUsername'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 
-const rootReducer = combineReducers({
-    counter: counterReducer,
-    user: userReducer,
-    login: loginReducer,
-})
+import { createReducerManager } from './reducerManager'
 
-export const setupStore = (preloadedState?: Partial<RootState>) => {
-    return configureStore({
-        reducer: rootReducer,
+const staticReducers = {
+    counter: counterReducer,
+    user: userReducer
+}
+
+const asyncReducers = {
+    login: loginReducer
+}
+
+export const setupStore = (preloadedState?: Partial<RootState>, asyncReducers?: AsyncReducers) => {
+    const reducerManager = createReducerManager({ ...staticReducers, ...asyncReducers })
+
+    const store = configureStore({
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState
     })
+
+    // @ts-expect-error eslint-disable-line @typescript-eslint/ban-ts-comment
+    store.reducerManager = reducerManager
+
+    return store
 }
 
-export type RootState = ReturnType<typeof rootReducer>
+type StaticReducers = typeof staticReducers
+export type AsyncReducers = typeof asyncReducers
+
+export type RootState = {
+    [K in keyof StaticReducers]: ReturnType<StaticReducers[K]>
+} & {
+    [K in keyof AsyncReducers]?: ReturnType<AsyncReducers[K]>
+}
+
+export type StateKey = keyof StaticReducers | keyof AsyncReducers
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']

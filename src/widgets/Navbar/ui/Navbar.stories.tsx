@@ -20,10 +20,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [
-        (Story) => StoreDecorator({ user: {} }, Story),
-        (Story) => ThemeDecorator(Theme.DARK, Story)
-    ]
+    decorators: [(Story) => StoreDecorator({ user: {} }, Story), (Story) => ThemeDecorator(Theme.DARK, Story)]
 }
 
 export const Authorized: Story = {

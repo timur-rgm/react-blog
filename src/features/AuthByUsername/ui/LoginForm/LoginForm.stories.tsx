@@ -25,9 +25,7 @@ export const Dark: Story = {
 
 export const Loading: Story = {
     args: {},
-    decorators: [(Story) => StoreDecorator(
-        { login: { username: 'admin', password: '123', isLoading: true } },
-        Story)]
+    decorators: [(Story) => StoreDecorator({ login: { username: 'admin', password: '123', isLoading: true } }, Story)]
 }
 
 export const Error: Story = {
@@ -35,7 +33,7 @@ export const Error: Story = {
     decorators: [
         (Story) =>
             StoreDecorator(
-                { login: { username: 'admin', password: '123', isLoading: false, error: 'Не верные логин или пароль' } },
+                { login: { username: '12', password: '123', isLoading: false, error: 'Error' } },
                 Story
             )
     ]
