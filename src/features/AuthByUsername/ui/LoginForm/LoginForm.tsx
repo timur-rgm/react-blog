@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -21,7 +21,11 @@ const initialReducers: ReducersList = {
     login: loginReducer
 }
 
-const LoginForm = () => {
+interface Props {
+    onSuccess: () => void
+}
+
+const LoginForm = ({ onSuccess }: Props) => {
     const { t } = useTranslation()
 
     const username = useAppSelector(selectLoginUsername)
@@ -45,9 +49,13 @@ const LoginForm = () => {
         [dispatch]
     )
 
-    const handleLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }))
-    }, [dispatch, username, password])
+    const handleLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }))
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [dispatch, username, password, onSuccess])
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
