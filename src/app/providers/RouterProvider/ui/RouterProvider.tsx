@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider as Provider } from 'react-router-do
 import { MainLayout } from 'shared/ui/MainLayout/MainLayout'
 import { MainPage } from 'pages/MainPage'
 import { AboutPage } from 'pages/AboutPage'
+import { ProfilePage } from 'pages/ProfilePage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: RoutePath.about,
                 element: <AboutPage />
+            },
+            {
+                path: RoutePath.profile,
+                element: <ProfilePage />
             },
             {
                 path: RoutePath.notFound,

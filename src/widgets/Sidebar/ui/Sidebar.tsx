@@ -53,6 +53,12 @@ export const Sidebar = ({ className }: Props) => {
                             <span>{t('Контакты')}</span>
                         </AppLink>
                     </li>
+                    <li>
+                        <AppLink className={styles.menuLink} to={RoutePath.profile}>
+                            <AboutIcon />
+                            <span>{t('Страница профиля')}</span>
+                        </AppLink>
+                    </li>
                 </ul>
             </nav>
 
