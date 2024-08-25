@@ -1,0 +1,20 @@
+.menuLink {
+    display: flex;
+    align-items: center;
+
+    & svg {
+        fill: var(--primary-color-inverted);
+    }
+
+    & span {
+        margin-left: 10px;
+        transition: opacity 200ms;
+    }
+
+    &.collapsed {
+        & span {
+            width: 0;
+            opacity: 0;
+        }
+    }
+}

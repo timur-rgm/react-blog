@@ -3,22 +3,10 @@
     width: var(--sidebar-width-open);
     height: calc(100vh - var(--navbar-height));
     background-color: var(--bg-color-inverted);
-    transition: width 0.2s;
+    transition: width 200ms;
 
     &.collapsed {
         width: var(--sidebar-width-close);
-
-        & .menuLink {
-            justify-content: center;
-            column-gap: 0;
-            padding: 0;
-
-            & span {
-                width: 0;
-                opacity: 0;
-                transition: opacity 200ms;
-            }
-        }
 
         & .switchers {
             flex-direction: column;
@@ -44,21 +32,11 @@
 
 .navContainer {
     margin-top: 20px;
+    padding-left: 30px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-}
-
-.menuLink {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-    padding-left: 20px;
-
-    & svg {
-        fill: var(--primary-color-inverted);
-    }
 }
