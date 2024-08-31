@@ -3,7 +3,7 @@
     width: var(--sidebar-width-open);
     height: calc(100vh - var(--navbar-height));
     background-color: var(--bg-color-inverted);
-    transition: width 200ms;
+    transition: all 200ms;
 
     &.collapsed {
         width: var(--sidebar-width-close);

@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { loginReducer } from 'features/AuthByUsername'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
+import { profileReducer } from 'entities/Profile'
 
 import { createReducerManager } from './reducerManager'
 
@@ -12,7 +13,8 @@ const staticReducers = {
 }
 
 const asyncReducers = {
-    login: loginReducer
+    login: loginReducer,
+    profile: profileReducer
 }
 
 export const setupStore = (preloadedState?: Partial<RootState>, asyncReducers?: AsyncReducers) => {
