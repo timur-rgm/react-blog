@@ -4,6 +4,7 @@ import { loginReducer } from 'features/AuthByUsername'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { profileReducer } from 'entities/Profile'
+import { api } from 'shared/api/api'
 
 import { createReducerManager } from './reducerManager'
 
@@ -23,7 +24,15 @@ export const setupStore = (preloadedState?: Partial<RootState>, asyncReducers?: 
     const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState
+        preloadedState,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api
+                    }
+                }
+            })
     })
 
     // @ts-expect-error eslint-disable-line @typescript-eslint/ban-ts-comment
