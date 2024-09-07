@@ -1,2 +1,7 @@
-export type { Profile, ProfileState } from './model/types/profile'
+export { ProfileCard } from './ui/ProfileCard/ProfileCard'
 export { profileReducer } from './model/slice/profileSlice'
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
+export { selectProfileData } from './model/selectors/selectProfileData/selectProfileData'
+export { selectProfileIsLoading } from './model/selectors/selectProfileIsLoading/selectProfileIsLoading'
+export { selectProfileError } from './model/selectors/selectProfileError/selectProfileError'
+export type { Profile, ProfileState } from './model/types/profile'

@@ -1,5 +1,6 @@
-import { combineReducers, Action, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
+import { combineReducers, Action, Reducer } from '@reduxjs/toolkit'
 import { RootState, StateKey } from './store'
+import { StateFromReducersMapObject } from 'redux'
 
 export function createReducerManager(initialReducers: Partial<Record<StateKey, Reducer>>) {
     const reducers = { ...initialReducers }
@@ -10,7 +11,7 @@ export function createReducerManager(initialReducers: Partial<Record<StateKey, R
 
     return {
         getReducerMap: () => reducers,
-        reduce: (state: RootState, action: Action) => {
+        reduce: (state: Partial<RootState>, action: Action) => {
             if (keysToRemove.length > 0) {
                 state = { ...state }
 
@@ -21,7 +22,7 @@ export function createReducerManager(initialReducers: Partial<Record<StateKey, R
                 keysToRemove = []
             }
 
-            return combinedReducer(state, action)
+            return combinedReducer(state as StateFromReducersMapObject<RootState>, action)
         },
         add: (key: StateKey, reducer: Reducer) => {
             if (!key || reducers[key]) {

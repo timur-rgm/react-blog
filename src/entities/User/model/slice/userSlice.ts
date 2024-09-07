@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
 import type { User, UserState } from '../types/user'
-import { RootState } from '@reduxjs/toolkit/query'
 
 const initialState: UserState = {}
 

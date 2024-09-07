@@ -1,10 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, Reducer } from '@reduxjs/toolkit'
 
 import { loginReducer } from 'features/AuthByUsername'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { profileReducer } from 'entities/Profile'
-import { api } from 'shared/api/api'
 
 import { createReducerManager } from './reducerManager'
 
@@ -22,17 +21,9 @@ export const setupStore = (preloadedState?: Partial<RootState>, asyncReducers?: 
     const reducerManager = createReducerManager({ ...staticReducers, ...asyncReducers })
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<Partial<RootState>>,
         devTools: __IS_DEV__,
         preloadedState,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware({
-                thunk: {
-                    extraArgument: {
-                        api
-                    }
-                }
-            })
     })
 
     // @ts-expect-error eslint-disable-line @typescript-eslint/ban-ts-comment
@@ -41,14 +32,11 @@ export const setupStore = (preloadedState?: Partial<RootState>, asyncReducers?: 
     return store
 }
 
-type StaticReducers = typeof staticReducers
+export type StaticReducers = typeof staticReducers
 export type AsyncReducers = typeof asyncReducers
 
-export type RootState = {
-    [K in keyof StaticReducers]: ReturnType<StaticReducers[K]>
-} & {
-    [K in keyof AsyncReducers]?: ReturnType<AsyncReducers[K]>
-}
+export type RootState = { [K in keyof StaticReducers]: ReturnType<StaticReducers[K]> } &
+    { [K in keyof AsyncReducers]?: ReturnType<AsyncReducers[K]> }
 
 export type StateKey = keyof StaticReducers | keyof AsyncReducers
 export type AppStore = ReturnType<typeof setupStore>

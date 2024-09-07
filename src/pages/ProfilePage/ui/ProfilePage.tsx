@@ -1,17 +1,23 @@
-import { useTranslation } from 'react-i18next'
+import { useEffect } from 'react'
+
+import { useAppDispatch } from 'app/providers/StoreProvider'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { profileReducer } from 'entities/Profile'
+import { ProfileCard, profileReducer, fetchProfileData } from 'entities/Profile'
 
 const initialReducers: ReducersList = {
     profile: profileReducer
 }
 
 const ProfilePage = () => {
-    const { t } = useTranslation()
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(fetchProfileData())
+    }, [dispatch])
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <h1>{t('Профиль')}</h1>
+            <ProfileCard />
         </DynamicModuleLoader>
     )
 }

@@ -14,7 +14,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: Variant
 }
 
-export const Button = ({ children, className, radius = 'none', size = 'small', variant = 'default', ...otherProps }: Props) => {
+export const Button = (props: Props) => {
+    const { children, className, radius = 'none', size = 'small', type = 'button', variant = 'default', ...otherProps } = props
+
     const rootClasses = cn(
         styles.root,
         styles[`radius-${radius}`],
@@ -24,7 +26,8 @@ export const Button = ({ children, className, radius = 'none', size = 'small', v
     )
 
     return (
-        <button className={rootClasses} {...otherProps}>
+        // eslint-disable-next-line react/button-has-type
+        <button className={rootClasses} type={type} {...otherProps}>
             {children}
         </button>
     )

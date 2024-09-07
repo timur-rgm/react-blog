@@ -6,7 +6,7 @@ import type { Reducer } from '@reduxjs/toolkit'
 import { useAppDispatch, StateKey } from 'app/providers/StoreProvider'
 
 export type ReducersList = { [key in StateKey]?: Reducer }
-type ReducerEntry = [StateKey, Reducer]
+type ReducerEntry = [string, Reducer]
 
 interface Props {
     children: ReactNode

@@ -23,14 +23,13 @@ export const Input = memo(function Input(props: Props) {
 
     useEffect(() => {
         if (autoFocus) {
-            ref.current.focus()
+            ref?.current?.focus()
         }
     }, [autoFocus])
 
     return (
         <div className={styles.container}>
             {placeholder && <p className={styles.placeholder}>{placeholder}</p>}
-
             <input
                 className={cn(styles.input, className)}
                 onChange={handleInputChange}
