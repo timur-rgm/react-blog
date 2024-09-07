@@ -28,8 +28,8 @@ const config: StorybookConfig = {
         autodocs: 'tag'
     },
     webpackFinal: async (config) => {
-        config.resolve.alias = {
-            ...config.resolve.alias,
+        config!.resolve!.alias = {
+            ...config!.resolve!.alias,
             app: path.resolve(__dirname, '../../src/app'),
             features: path.resolve(__dirname, '../../src/features'),
             entities: path.resolve(__dirname, '../../src/entities'),

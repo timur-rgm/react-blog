@@ -1,10 +1,10 @@
-import axios from 'axios'
+import { api } from 'shared/api/api'
 import { loginByUsername } from './loginByUsername'
 import { setAuthData } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
-jest.mock('axios')
-const mockedAxios = axios as jest.Mocked<typeof axios>
+jest.mock('shared/api/api')
+const mockedAxios = api as jest.Mocked<typeof api>
 
 describe('loginByUsername', () => {
     test('success login', async () => {
