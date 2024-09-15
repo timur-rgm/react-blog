@@ -1,9 +1,9 @@
 import { configureStore, Reducer } from '@reduxjs/toolkit'
 
 import { loginReducer } from 'features/AuthByUsername'
+import { profileReducer } from 'features/EditProfileCard'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
-import { profileReducer } from 'entities/Profile'
 
 import { createReducerManager } from './reducerManager'
 

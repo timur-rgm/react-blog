@@ -1,30 +1,42 @@
 import { useTranslation } from 'react-i18next'
+import cn from 'classnames'
 
-import { useAppSelector } from 'app/providers/StoreProvider'
-import { selectProfileData, selectProfileIsLoading, selectProfileError } from 'entities/Profile'
+import type { Profile } from 'entities/Profile'
 import { Text } from 'shared/ui/Text/Text'
-import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
+import { Loader } from 'shared/ui/Loader/Loader'
 
 import styles from './ProfileCard.module.scss'
 
-export const ProfileCard = () => {
+interface Props {
+    data?: Profile
+    error?: string
+    isLoading?: boolean
+}
+
+export const ProfileCard = ({ data, error, isLoading }: Props) => {
     const { t } = useTranslation('profile')
 
-    const data = useAppSelector(selectProfileData)
-    const isLoading = useAppSelector(selectProfileIsLoading)
-    const error = useAppSelector(selectProfileError)
+    if (isLoading) {
+        return (
+            <div className={cn(styles.root, styles.loading)}>
+                <Loader />
+            </div>
+        )
+    }
+
+    if (error) {
+        return (
+            <div className={cn(styles.root, styles.error)}>
+                <Text variant="error">{t('Ошибка загрузки')}</Text>
+            </div>
+        )
+    }
 
     return (
         <div className={styles.root}>
-            <header className={styles.header}>
-                <Text element="h1" size={20}>{t('Профиль')}</Text>
-                <Button variant="outline">{t('Редактировать')}</Button>
-            </header>
-            <div className={styles.content}>
-                <Input placeholder={t('Имя')} value={data?.first} />
-                <Input placeholder={t('Фамилия')} value={data?.lastname} />
-            </div>
+            <Input placeholder={t('Имя')} value={data?.first} />
+            <Input placeholder={t('Фамилия')} value={data?.lastname} />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { AsyncReducers, RootState, StoreProvider } from 'app/providers/StoreProvider'
 import { StoryFn } from '@storybook/react'
 import { loginReducer } from 'features/AuthByUsername'
-import { profileReducer } from 'entities/Profile'
+import { profileReducer } from 'features/EditProfileCard'
 
 const defaultAsyncReducers: AsyncReducers = {
     login: loginReducer,

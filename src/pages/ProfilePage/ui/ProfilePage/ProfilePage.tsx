@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 
 import { useAppDispatch } from 'app/providers/StoreProvider'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { ProfileCard, profileReducer, fetchProfileData } from 'entities/Profile'
+import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditProfileCard'
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader'
+
+import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader'
 
 const initialReducers: ReducersList = {
     profile: profileReducer
@@ -17,7 +19,8 @@ const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <ProfileCard />
+            <ProfilePageHeader />
+            <EditableProfileCard />
         </DynamicModuleLoader>
     )
 }

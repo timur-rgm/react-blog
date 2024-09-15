@@ -1,17 +1,15 @@
 .root {
-    padding: 20px;
-    border: 1px solid var(--bg-color-inverted);
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.content {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    padding: 20px;
+    border: 1px solid var(--bg-color-inverted);
+
+    &.loading,
+    &.error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
 }

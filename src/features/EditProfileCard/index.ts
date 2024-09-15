@@ -1,0 +1,6 @@
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
+export { selectProfileData } from './model/selectors/selectProfileData/selectProfileData'
+export { selectProfileIsLoading } from './model/selectors/selectProfileIsLoading/selectProfileIsLoading'
+export { selectProfileError } from './model/selectors/selectProfileError/selectProfileError'
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
+export { profileReducer } from './model/slice/profileSlice'

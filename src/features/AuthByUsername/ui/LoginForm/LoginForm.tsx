@@ -6,7 +6,7 @@ import { useAppSelector, useAppDispatch } from 'app/providers/StoreProvider'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { Text } from 'shared/ui/Text/Text'
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername'
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword'

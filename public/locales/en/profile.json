@@ -2,5 +2,6 @@
     "Профиль": "Profile",
     "Редактировать": "Edit",
     "Имя": "Firstname",
-    "Фамилия": "Lastname"
+    "Фамилия": "Lastname",
+    "Ошибка загрузки": "Failed to load profile. Please try again."
 }
