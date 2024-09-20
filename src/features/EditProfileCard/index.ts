@@ -1,7 +1,8 @@
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
-export { selectFormData } from './model/selectors/selectFormData/selectFormData'
-export { selectProfileIsLoading } from './model/selectors/selectProfileIsLoading/selectProfileIsLoading'
-export { selectProfileIsReadOnly } from './model/selectors/selectProfileIsReadOnly/selectProfileIsReadOnly'
-export { selectProfileError } from './model/selectors/selectProfileError/selectProfileError'
+
+export { selectFormData, selectProfileIsLoading, selectProfileIsReadOnly, selectProfileError } from './model/selectors'
+
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData'
+
 export { profileReducer, setReadOnly, setProfileData, cancelProfileEditing } from './model/slice/profileSlice'

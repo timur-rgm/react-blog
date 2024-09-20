@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { selectProfileIsReadOnly, setReadOnly, cancelProfileEditing } from 'features/EditProfileCard'
+import { selectProfileIsReadOnly, setReadOnly, cancelProfileEditing, updateProfileData } from 'features/EditProfileCard'
 import { Text } from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 
@@ -13,15 +13,15 @@ export const ProfilePageHeader = () => {
     const readonly = useAppSelector(selectProfileIsReadOnly)
     const dispatch = useAppDispatch()
 
-    const handleEdit = () => {
+    const handleEditButtonClick = () => {
         dispatch(setReadOnly(false))
     }
 
-    const handleSave = () => {
-        dispatch(setReadOnly(true))
+    const handleSaveButtonClick = () => {
+        dispatch(updateProfileData())
     }
 
-    const handleCancelEdit = () => {
+    const handleCancelButtonClick = () => {
         dispatch(cancelProfileEditing())
     }
 
@@ -32,15 +32,15 @@ export const ProfilePageHeader = () => {
             </Text>
 
             {readonly ? (
-                <Button onClick={handleEdit} variant="outline">
+                <Button onClick={handleEditButtonClick} variant="outline">
                     {t('Редактировать')}
                 </Button>
             ) : (
                 <>
-                    <Button className={styles.saveButton} onClick={handleSave} variant="outline">
+                    <Button className={styles.saveButton} onClick={handleSaveButtonClick} variant="outline">
                         {t('Сохранить')}
                     </Button>
-                    <Button onClick={handleCancelEdit} variant="outline-red">
+                    <Button onClick={handleCancelButtonClick} variant="outline-red">
                         {t('Отмена')}
                     </Button>
                 </>
