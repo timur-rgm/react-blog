@@ -4,7 +4,7 @@ import styles from './Button.module.scss'
 
 type Radius = 'none' | 'small'
 type Size = 'small' | 'medium' | 'big'
-type Variant = 'default' | 'clear' | 'clear-inverted' | 'outline' | 'background' | 'background-inverted'
+type Variant = 'default' | 'clear' | 'clear-inverted' | 'outline' | 'outline-red' | 'background' | 'background-inverted'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

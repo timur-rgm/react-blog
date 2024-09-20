@@ -32,6 +32,13 @@
     background: none;
 }
 
+.variant-outline-red {
+  padding: 10px 15px;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  background: none;
+}
+
 .variant-background {
     color: var(--primary-color);
     border: none;

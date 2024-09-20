@@ -8,4 +8,12 @@
 
 .input {
     flex-grow: 1;
+
+    &.readonly {
+        color: var(--secondary-color);
+        border: none;
+        background: none;
+        outline: none;
+        cursor: default;
+    }
 }

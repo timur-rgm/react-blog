@@ -1,6 +1,8 @@
 {
     "Профиль": "Profile",
     "Редактировать": "Edit",
+    "Сохранить": "Save",
+    "Отмена": "Cancel",
     "Имя": "Firstname",
     "Фамилия": "Lastname",
     "Ошибка загрузки": "Failed to load profile. Please try again."

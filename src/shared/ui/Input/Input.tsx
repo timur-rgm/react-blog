@@ -2,18 +2,19 @@ import { InputHTMLAttributes, ChangeEvent, memo, useRef, useEffect } from 'react
 import cn from 'classnames'
 import styles from './Input.module.scss'
 
-type InputAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type InputAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface Props extends InputAttributes {
+    autoFocus?: boolean
     className?: string
-    value?: string
     onChange?: (value: string) => void
     placeholder?: string
-    autoFocus?: boolean
+    readonly?: boolean
+    value?: string
 }
 
 export const Input = memo(function Input(props: Props) {
-    const { className, value, onChange, placeholder, type = 'text', autoFocus, ...otherProps } = props
+    const { autoFocus, className, onChange, placeholder, readonly, type = 'text', value, ...otherProps } = props
 
     const ref = useRef<HTMLInputElement>(null)
 
@@ -29,10 +30,11 @@ export const Input = memo(function Input(props: Props) {
 
     return (
         <div className={styles.container}>
-            {placeholder && <p className={styles.placeholder}>{placeholder}</p>}
+            {placeholder && <p className={styles.placeholder}>{placeholder}:</p>}
             <input
-                className={cn(styles.input, className)}
+                className={cn(styles.input, className, { [styles.readonly]: readonly })}
                 onChange={handleInputChange}
+                readOnly={readonly}
                 ref={ref}
                 type={type}
                 value={value}
