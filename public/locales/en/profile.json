@@ -5,5 +5,8 @@
     "Отмена": "Cancel",
     "Имя": "Firstname",
     "Фамилия": "Lastname",
+    "Возраст": "Age",
+    "Город": "City",
+    "Страна": "Country",
     "Ошибка загрузки": "Failed to load profile. Please try again."
 }

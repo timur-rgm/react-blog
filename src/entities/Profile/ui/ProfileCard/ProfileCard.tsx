@@ -14,11 +14,22 @@ interface Props {
     isLoading?: boolean
     onFirstnameChange: (value: string) => void
     onLastnameChange: (value: string) => void
+    onAgeChange: (value: string) => void
+    onCityChange: (value: string) => void
     readonly?: boolean
 }
 
 export const ProfileCard = (props: Props) => {
-    const { data, error, isLoading, onFirstnameChange, onLastnameChange, readonly } = props
+    const {
+        data,
+        error,
+        isLoading,
+        onFirstnameChange,
+        onLastnameChange,
+        onAgeChange,
+        onCityChange,
+        readonly
+    } = props
 
     const { t } = useTranslation('profile')
 
@@ -40,18 +51,10 @@ export const ProfileCard = (props: Props) => {
 
     return (
         <div className={styles.root}>
-            <Input
-                onChange={onFirstnameChange}
-                placeholder={t('Имя')}
-                readonly={readonly}
-                value={data?.first}
-            />
-            <Input
-                onChange={onLastnameChange}
-                placeholder={t('Фамилия')}
-                readonly={readonly}
-                value={data?.lastname}
-            />
+            <Input onChange={onFirstnameChange} placeholder={t('Имя')} readonly={readonly} value={data?.first} />
+            <Input onChange={onLastnameChange} placeholder={t('Фамилия')} readonly={readonly} value={data?.lastname} />
+            <Input onChange={onAgeChange} placeholder={t('Возраст')} readonly={readonly} type="number" value={data?.age} />
+            <Input onChange={onCityChange} placeholder={t('Город')} readonly={readonly} value={data?.city} />
         </div>
     )
 }

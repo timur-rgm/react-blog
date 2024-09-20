@@ -28,11 +28,31 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
+    const handleAgeChange = useCallback(
+        (value?: string) => {
+            const numberRegex = /^\d+$/
+
+            if (value && numberRegex.test(value)) {
+                dispatch(setProfileData({ age: Number(value) }))
+            }
+        },
+        [dispatch]
+    )
+
+    const handleCityChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ city: value }))
+        },
+        [dispatch]
+    )
+
     return (
         <ProfileCard
             data={formData}
             error={error}
             isLoading={isLoading}
+            onAgeChange={handleAgeChange}
+            onCityChange={handleCityChange}
             onFirstnameChange={handleFirstnameChange}
             onLastnameChange={handleLastnameChange}
             readonly={readonly}

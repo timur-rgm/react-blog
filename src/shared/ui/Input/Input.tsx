@@ -10,7 +10,7 @@ interface Props extends InputAttributes {
     onChange?: (value: string) => void
     placeholder?: string
     readonly?: boolean
-    value?: string
+    value?: string | number
 }
 
 export const Input = memo(function Input(props: Props) {

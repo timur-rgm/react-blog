@@ -41,7 +41,7 @@ export const ProfilePageHeader = () => {
                         {t('Сохранить')}
                     </Button>
                     <Button onClick={handleCancelEdit} variant="outline-red">
-                        {t('Отменить')}
+                        {t('Отмена')}
                     </Button>
                 </>
             )}
