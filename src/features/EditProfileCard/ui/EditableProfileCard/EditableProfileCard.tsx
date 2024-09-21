@@ -28,6 +28,13 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
+    const handleLoginChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ username: value }))
+        },
+        [dispatch]
+    )
+
     const handleAgeChange = useCallback(
         (value?: string) => {
             const numberRegex = /^\d+$/
@@ -46,15 +53,24 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
+    const handleAvatarChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ avatar: value }))
+        },
+        [dispatch]
+    )
+
     return (
         <ProfileCard
             data={formData}
             error={error}
             isLoading={isLoading}
             onAgeChange={handleAgeChange}
+            onAvatarChange={handleAvatarChange}
             onCityChange={handleCityChange}
             onFirstnameChange={handleFirstnameChange}
             onLastnameChange={handleLastnameChange}
+            onLoginChange={handleLoginChange}
             readonly={readonly}
         />
     )

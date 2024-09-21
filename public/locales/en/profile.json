@@ -5,8 +5,11 @@
     "Отмена": "Cancel",
     "Имя": "Firstname",
     "Фамилия": "Lastname",
+    "Логин": "Login",
     "Возраст": "Age",
     "Город": "City",
     "Страна": "Country",
+    "Валюта": "Currency",
+    "Аватар": "Avatar",
     "Ошибка загрузки": "Failed to load profile. Please try again."
 }

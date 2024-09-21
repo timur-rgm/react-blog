@@ -12,10 +12,12 @@ interface Props {
     data?: Profile
     error?: string
     isLoading?: boolean
-    onFirstnameChange: (value: string) => void
-    onLastnameChange: (value: string) => void
     onAgeChange: (value: string) => void
+    onAvatarChange: (value: string) => void
     onCityChange: (value: string) => void
+    onLastnameChange: (value: string) => void
+    onLoginChange: (value: string) => void
+    onFirstnameChange: (value: string) => void
     readonly?: boolean
 }
 
@@ -24,10 +26,12 @@ export const ProfileCard = (props: Props) => {
         data,
         error,
         isLoading,
+        onAgeChange,
+        onAvatarChange,
+        onCityChange,
         onFirstnameChange,
         onLastnameChange,
-        onAgeChange,
-        onCityChange,
+        onLoginChange,
         readonly
     } = props
 
@@ -51,10 +55,15 @@ export const ProfileCard = (props: Props) => {
 
     return (
         <div className={styles.root}>
+            {readonly && Boolean(data?.avatar) && <img alt="User's avatar" src={data?.avatar} width={200} />}
+            {!readonly && <Input onChange={onAvatarChange} placeholder={t('Аватар')} readonly={readonly} value={data?.avatar} />}
+            <Input onChange={onLoginChange} placeholder={t('Логин')} readonly={readonly} value={data?.username} />
             <Input onChange={onFirstnameChange} placeholder={t('Имя')} readonly={readonly} value={data?.first} />
             <Input onChange={onLastnameChange} placeholder={t('Фамилия')} readonly={readonly} value={data?.lastname} />
             <Input onChange={onAgeChange} placeholder={t('Возраст')} readonly={readonly} type="number" value={data?.age} />
             <Input onChange={onCityChange} placeholder={t('Город')} readonly={readonly} value={data?.city} />
+            <Input onChange={onCityChange} placeholder={t('Страна')} readonly={readonly} value={data?.country} />
+            <Input onChange={onCityChange} placeholder={t('Валюта')} readonly={readonly} value={data?.currency} />
         </div>
     )
 }
