@@ -12,4 +12,12 @@
         align-items: center;
         height: 200px;
     }
+
+    &.editing {
+        border: 1px solid var(--secondary-color);
+    }
+}
+
+.avatar {
+    margin: 0 auto 20px;
 }

@@ -15,7 +15,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = (props: Props) => {
-    const { children, className, radius = 'none', size = 'small', type = 'button', variant = 'default', ...otherProps } = props
+    const {
+        children,
+        className,
+        radius = 'none',
+        size = 'small',
+        type = 'button',
+        variant = 'default',
+        ...otherProps
+    } = props
 
     const rootClasses = cn(
         styles.root,
