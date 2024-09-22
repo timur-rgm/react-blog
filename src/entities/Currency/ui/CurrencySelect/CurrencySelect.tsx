@@ -1,5 +1,8 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+
 import { Select } from 'shared/ui/Select'
+
 import { Currency } from '../../model/types/currency'
 
 const options = [
@@ -14,7 +17,7 @@ interface Props {
     value?: string
 }
 
-export const CurrencySelect = ({ onChange, readonly, value }: Props) => {
+export const CurrencySelect = memo(function CurrencySelect({ onChange, readonly, value }: Props) {
     const { t } = useTranslation('profile')
 
     const handleChange = (value: string) => {
@@ -22,11 +25,6 @@ export const CurrencySelect = ({ onChange, readonly, value }: Props) => {
     }
 
     return (
-        <Select
-            onChange={handleChange}
-            options={options}
-            placeholder={t('Валюта')}
-            readonly={readonly}
-            value={value}
-        />)
-}
+        <Select onChange={handleChange} options={options} placeholder={t('Валюта')} readonly={readonly} value={value} />
+    )
+})

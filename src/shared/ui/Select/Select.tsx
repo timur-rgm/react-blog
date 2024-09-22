@@ -1,5 +1,8 @@
+import { memo } from 'react'
 import type { ChangeEvent } from 'react'
+
 import cn from 'classnames'
+
 import styles from './Select.module.scss'
 
 interface SelectOption {
@@ -15,7 +18,7 @@ interface Props {
     value?: string
 }
 
-export const Select = (props: Props) => {
+export const Select = memo(function Select(props: Props) {
     const { onChange, options, placeholder, readonly, value } = props
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -39,4 +42,4 @@ export const Select = (props: Props) => {
             </select>
         </div>
     )
-}
+})

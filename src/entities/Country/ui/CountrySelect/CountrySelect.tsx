@@ -1,5 +1,8 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+
 import { Select } from 'shared/ui/Select'
+
 import { Country } from '../../model/types/country'
 
 const options = [
@@ -15,7 +18,7 @@ interface Props {
     value?: string
 }
 
-export const CountrySelect = ({ onChange, readonly, value }: Props) => {
+export const CountrySelect = memo(function CountrySelect({ onChange, readonly, value }: Props) {
     const { t } = useTranslation('profile')
 
     const handleChange = (value: string) => {
@@ -25,4 +28,4 @@ export const CountrySelect = ({ onChange, readonly, value }: Props) => {
     return (
         <Select onChange={handleChange} options={options} placeholder={t('Страна')} readonly={readonly} value={value} />
     )
-}
+})

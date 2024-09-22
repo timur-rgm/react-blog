@@ -3,10 +3,10 @@ import { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ProfileCard } from 'entities/Profile'
 import { Currency } from 'entities/Currency'
+import { Country } from 'entities/Country'
 
 import { selectFormData, selectProfileIsLoading, selectProfileError, selectProfileIsReadOnly } from '../../model/selectors'
 import { setProfileData } from '../../model/slice/profileSlice'
-import { Country } from 'entities/Country/model/types/country'
 
 export const EditableProfileCard = () => {
     const formData = useAppSelector(selectFormData)
