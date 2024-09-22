@@ -1,13 +1,12 @@
-import { useTranslation } from 'react-i18next'
 import cn from 'classnames'
+import { useTranslation } from 'react-i18next'
 
+import { CountrySelect, Country } from 'entities/Country'
+import { CurrencySelect, Currency } from 'entities/Currency'
+import type { Profile } from 'entities/Profile'
 import { Avatar } from 'shared/ui/Avatar'
-import { Country } from 'shared/const/common'
-import { Currency, CurrencySelect } from 'entities/Currency'
 import { Input } from 'shared/ui/Input/Input'
 import { Loader } from 'shared/ui/Loader/Loader'
-import type { Profile } from 'entities/Profile'
-import { Select } from 'shared/ui/Select'
 import { Text } from 'shared/ui/Text/Text'
 
 import styles from './ProfileCard.module.scss'
@@ -79,7 +78,7 @@ export const ProfileCard = (props: Props) => {
             <Input onChange={onCityChange} placeholder={t('Город')} readonly={readonly} value={data?.city} />
 
             <CurrencySelect onChange={onCurrencyChange} readonly={readonly} value={data?.currency} />
-            <Select onChange={() => {}} options={[]} placeholder={t('Страна')} readonly={readonly} />
+            <CountrySelect onChange={onCountryChange} readonly={readonly} value={data?.country} />
         </div>
     )
 }

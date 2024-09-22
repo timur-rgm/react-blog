@@ -4,42 +4,16 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ProfileCard } from 'entities/Profile'
 import { Currency } from 'entities/Currency'
 
-import {
-    selectFormData,
-    selectProfileIsLoading,
-    selectProfileError,
-    selectProfileIsReadOnly
-} from '../../model/selectors'
+import { selectFormData, selectProfileIsLoading, selectProfileError, selectProfileIsReadOnly } from '../../model/selectors'
 import { setProfileData } from '../../model/slice/profileSlice'
+import { Country } from 'entities/Country/model/types/country'
 
 export const EditableProfileCard = () => {
     const formData = useAppSelector(selectFormData)
     const isLoading = useAppSelector(selectProfileIsLoading)
     const error = useAppSelector(selectProfileError)
     const readonly = useAppSelector(selectProfileIsReadOnly)
-
     const dispatch = useAppDispatch()
-
-    const handleFirstnameChange = useCallback(
-        (value?: string) => {
-            dispatch(setProfileData({ first: value }))
-        },
-        [dispatch]
-    )
-
-    const handleLastnameChange = useCallback(
-        (value?: string) => {
-            dispatch(setProfileData({ lastname: value }))
-        },
-        [dispatch]
-    )
-
-    const handleLoginChange = useCallback(
-        (value?: string) => {
-            dispatch(setProfileData({ username: value }))
-        },
-        [dispatch]
-    )
 
     const handleAgeChange = useCallback(
         (value?: string) => {
@@ -59,6 +33,20 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
+    const handleCityChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ city: value }))
+        },
+        [dispatch]
+    )
+
+    const handleCountryChange = useCallback(
+        (value?: Country) => {
+            dispatch(setProfileData({ country: value }))
+        },
+        [dispatch]
+    )
+
     const handleCurrencyChange = useCallback(
         (value?: Currency) => {
             dispatch(setProfileData({ currency: value }))
@@ -66,9 +54,23 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
-    const handleCityChange = useCallback(
+    const handleLastnameChange = useCallback(
         (value?: string) => {
-            dispatch(setProfileData({ city: value }))
+            dispatch(setProfileData({ lastname: value }))
+        },
+        [dispatch]
+    )
+
+    const handleLoginChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ username: value }))
+        },
+        [dispatch]
+    )
+
+    const handleFirstnameChange = useCallback(
+        (value?: string) => {
+            dispatch(setProfileData({ first: value }))
         },
         [dispatch]
     )
@@ -81,6 +83,7 @@ export const EditableProfileCard = () => {
             onAgeChange={handleAgeChange}
             onAvatarChange={handleAvatarChange}
             onCityChange={handleCityChange}
+            onCountryChange={handleCountryChange}
             onCurrencyChange={handleCurrencyChange}
             onFirstnameChange={handleFirstnameChange}
             onLastnameChange={handleLastnameChange}

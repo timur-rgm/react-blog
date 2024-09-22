@@ -14,9 +14,7 @@ interface Props {
     value?: string
 }
 
-export const CurrencySelect = (props: Props) => {
-    const { onChange, readonly, value } = props
-
+export const CurrencySelect = ({ onChange, readonly, value }: Props) => {
     const { t } = useTranslation('profile')
 
     const handleChange = (value: string) => {
