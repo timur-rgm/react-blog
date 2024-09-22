@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import cn from 'classnames'
 import styles from './Avatar.module.scss'
 
@@ -8,16 +9,8 @@ interface Props {
     src: string
 }
 
-export const Avatar = (props: Props) => {
+export const Avatar = memo(function Avatar(props: Props) {
     const { alt = 'Avatar', className, size, src } = props
 
-    return (
-        <img
-            alt={alt}
-            className={cn(styles.root, className)}
-            height={size}
-            src={src}
-            width={size}
-        />
-    )
-}
+    return <img alt={alt} className={cn(styles.root, className)} height={size} src={src} width={size} />
+})

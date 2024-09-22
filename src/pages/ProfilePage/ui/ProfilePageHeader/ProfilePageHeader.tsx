@@ -37,11 +37,11 @@ export const ProfilePageHeader = () => {
                 </Button>
             ) : (
                 <>
-                    <Button className={styles.saveButton} onClick={handleSaveButtonClick} variant="outline">
-                        {t('Сохранить')}
-                    </Button>
-                    <Button onClick={handleCancelButtonClick} variant="outline-red">
+                    <Button className={styles.cancelButton} onClick={handleCancelButtonClick} variant="outline-red">
                         {t('Отмена')}
+                    </Button>
+                    <Button onClick={handleSaveButtonClick} variant="outline">
+                        {t('Сохранить')}
                     </Button>
                 </>
             )}

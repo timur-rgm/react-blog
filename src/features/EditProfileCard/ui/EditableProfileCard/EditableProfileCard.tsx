@@ -2,8 +2,14 @@ import { useCallback } from 'react'
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ProfileCard } from 'entities/Profile'
+import { Currency } from 'entities/Currency'
 
-import { selectFormData, selectProfileIsLoading, selectProfileError, selectProfileIsReadOnly } from '../../model/selectors'
+import {
+    selectFormData,
+    selectProfileIsLoading,
+    selectProfileError,
+    selectProfileIsReadOnly
+} from '../../model/selectors'
 import { setProfileData } from '../../model/slice/profileSlice'
 
 export const EditableProfileCard = () => {
@@ -46,16 +52,23 @@ export const EditableProfileCard = () => {
         [dispatch]
     )
 
-    const handleCityChange = useCallback(
+    const handleAvatarChange = useCallback(
         (value?: string) => {
-            dispatch(setProfileData({ city: value }))
+            dispatch(setProfileData({ avatar: value }))
         },
         [dispatch]
     )
 
-    const handleAvatarChange = useCallback(
+    const handleCurrencyChange = useCallback(
+        (value?: Currency) => {
+            dispatch(setProfileData({ currency: value }))
+        },
+        [dispatch]
+    )
+
+    const handleCityChange = useCallback(
         (value?: string) => {
-            dispatch(setProfileData({ avatar: value }))
+            dispatch(setProfileData({ city: value }))
         },
         [dispatch]
     )
@@ -68,6 +81,7 @@ export const EditableProfileCard = () => {
             onAgeChange={handleAgeChange}
             onAvatarChange={handleAvatarChange}
             onCityChange={handleCityChange}
+            onCurrencyChange={handleCurrencyChange}
             onFirstnameChange={handleFirstnameChange}
             onLastnameChange={handleLastnameChange}
             onLoginChange={handleLoginChange}

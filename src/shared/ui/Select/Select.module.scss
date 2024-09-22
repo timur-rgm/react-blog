@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.select {
+    flex-grow: 1;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    background: none;
+
+    &.readonly {
+        border: none;
+        outline: none;
+        cursor: default;
+        pointer-events: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+}
+
+.option {
+    color: var(--primary-color-inverted);
+    background-color: var(--primary-color);
+}

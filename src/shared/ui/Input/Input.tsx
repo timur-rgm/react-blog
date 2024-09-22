@@ -30,7 +30,7 @@ export const Input = memo(function Input(props: Props) {
 
     return (
         <div className={styles.container}>
-            {placeholder && <p className={styles.placeholder}>{placeholder}:</p>}
+            {!!placeholder && <p className={styles.placeholder}>{placeholder}:</p>}
             <input
                 className={cn(styles.input, className, { [styles.readonly]: readonly })}
                 onChange={handleInputChange}
