@@ -6,4 +6,5 @@ export interface ProfileState {
     isLoading: boolean
     error?: string
     readonly: boolean
+    validationErrors?: string[]
 }

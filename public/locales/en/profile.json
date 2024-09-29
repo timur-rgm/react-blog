@@ -11,5 +11,9 @@
     "Страна": "Country",
     "Валюта": "Currency",
     "Аватар": "Avatar",
-    "Ошибка загрузки": "Failed to load profile. Please try again."
+    "Ошибка загрузки": "Failed to load profile. Please try again.",
+    "Логин обязятелен": "Login is required",
+    "Имя обязятельно": "Firstname is required",
+    "Фамилия обязательна": "Lastname is required",
+    "Некорректный возраст": "Age is incorrect"
 }
